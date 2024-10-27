@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cxoa24h84b2ak"]
+[gd_scene load_steps=57 format=4 uid="uid://cxoa24h84b2ak"]
 
 [ext_resource type="PackedScene" uid="uid://bsguup0m8xqxp" path="res://player/Player.tscn" id="3"]
 [ext_resource type="Script" path="res://environment/intro.gd" id="4_ik8s7"]
@@ -9,6 +9,19 @@
 [ext_resource type="PackedScene" uid="uid://d1pnng7cmuwb1" path="res://GRASS_PATH.blend" id="8_8h4qn"]
 [ext_resource type="PackedScene" uid="uid://begkjbpas71bu" path="res://dirt_pile.blend" id="8_cre6k"]
 [ext_resource type="Script" path="res://dirt_pile.gd" id="9_xx3d8"]
+[ext_resource type="Texture2D" uid="uid://di1e5liouqt82" path="res://Pictures/coin.png" id="10_2xni1"]
+[ext_resource type="Texture2D" uid="uid://bqpeplyuy05tw" path="res://Pictures/pocketwatch.png" id="11_acl0b"]
+[ext_resource type="Texture2D" uid="uid://svil5t2u81n" path="res://Pictures/machine.png" id="12_5t3py"]
+[ext_resource type="Texture2D" uid="uid://djudp60gdmp72" path="res://Pictures/Journal.png" id="13_otwyt"]
+[ext_resource type="Texture2D" uid="uid://dtxtbb4qh6lvb" path="res://Pictures/compass.png" id="14_24gfb"]
+[ext_resource type="Texture2D" uid="uid://caa7xddxis66g" path="res://Pictures/dogtag.png" id="15_5itlr"]
+[ext_resource type="Texture2D" uid="uid://d00rleift0pah" path="res://Pictures/locket.png" id="16_glqwk"]
+[ext_resource type="Texture2D" uid="uid://b4ent668cddu3" path="res://Pictures/shoes.png" id="17_wt05m"]
+[ext_resource type="Texture2D" uid="uid://ch5oklgri331p" path="res://Pictures/new coin.png" id="18_s1ix7"]
+[ext_resource type="Texture2D" uid="uid://c5cajojksp1kt" path="res://Pictures/newkey.png" id="19_kkusw"]
+[ext_resource type="Texture2D" uid="uid://cxnai7rafco4p" path="res://Pictures/tablet.png" id="20_cdtke"]
+[ext_resource type="Texture2D" uid="uid://b1hlc6mm3ypdu" path="res://Pictures/bracelet.png" id="21_met2g"]
+[ext_resource type="Texture2D" uid="uid://dy34bnnwyftoq" path="res://Pictures/unknown.jpg" id="22_cal8j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y252g"]
 
@@ -33,6 +46,18 @@ fog_depth_end = 57.9
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.1888
 volumetric_fog_detail_spread = 0.5
+
+[sub_resource type="SystemFont" id="SystemFont_a0u44"]
+
+[sub_resource type="Theme" id="Theme_q8vvs"]
+default_font = SubResource("SystemFont_a0u44")
+default_font_size = 40
+
+[sub_resource type="SystemFont" id="SystemFont_55bc2"]
+
+[sub_resource type="Theme" id="Theme_8cmyd"]
+default_font = SubResource("SystemFont_55bc2")
+default_font_size = 26
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iinm2"]
 resource_name = "Rock"
@@ -442,30 +467,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 script = ExtResource("4_ik8s7")
 
 [node name="Panel" type="Panel" parent="Intro"]
-z_index = -1
+z_index = 1
 offset_right = 1980.0
 offset_bottom = 1080.0
 
 [node name="Label" type="Label" parent="Intro"]
-offset_right = 929.0
-offset_bottom = 75.0
-text = "This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. 
-This is a test. This is a test. This is a test. 
-This is a test. This is a test. This is a test. This is a test. "
+z_index = 4
+offset_left = 81.0
+offset_top = 73.0
+offset_right = 3367.0
+offset_bottom = 360.0
+theme = SubResource("Theme_q8vvs")
+text = "Metal detecting at night isn’t unusual.
+It’s often done in busy public places where there are crowds during the day;
+Beaches, parks, playgrounds,
+There's safety in numbers.
+
+But when there are too many people, sometimes you have to go deeper.
+Off the map.
+And out here, it’s just whatever’s buried in the earth, your metal detector, and you...
+
+Hopefully.
+
+[PRESS ENTER TO CONTINUE]"
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="dialogue" type="Label" parent="UI"]
-offset_left = 134.0
-offset_top = 805.0
-offset_right = 1815.0
-offset_bottom = 979.0
-
-[node name="textbox" type="Panel" parent="UI"]
-offset_left = 115.0
-offset_top = 788.0
-offset_right = 1837.0
-offset_bottom = 1001.0
+offset_left = 91.0
+offset_top = 810.0
+offset_right = 1772.0
+offset_bottom = 984.0
+theme = SubResource("Theme_8cmyd")
 
 [node name="Forest" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.313965, -0.320343, -2.89178)
@@ -557,20 +590,160 @@ shape = SubResource("WorldBoundaryShape3D_tyl8m")
 
 [node name="Node3D" type="Node3D" parent="."]
 
-[node name="dirt_pile_ring" parent="Node3D" instance=ExtResource("8_cre6k")]
+[node name="dirt_pile_pocketwatch" parent="Node3D" instance=ExtResource("8_cre6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.982, -6.45036, 34.3749)
 script = ExtResource("9_xx3d8")
 player = NodePath("../../Player")
-text = "What… is this? And old ring? I should probably leave it alone…"
+image = NodePath("../../Pictures/coin2")
+text = "A fancy pocketwatch - Whoa, this could be worth something. Bet whoever dropped it never thought it’d end up in my pocket."
 
 [node name="dirt_pile_coin" parent="Node3D" instance=ExtResource("8_cre6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13545, -6.81498, 14.9096)
 script = ExtResource("9_xx3d8")
 player = NodePath("../../Player")
-text = "A coin! Maybe it's worth something..."
+image = NodePath("../../Pictures/coin")
+text = "An ancient coin! Probably worth more than those lousy souvenirs in town. Maybe this trip’s gonna pay off..!"
 
-[node name="dirt_pile_ring2" parent="Node3D" instance=ExtResource("8_cre6k")]
+[node name="dirt_pile_machinery" parent="Node3D" instance=ExtResource("8_cre6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.6028, -6.69322, 31.4505)
 script = ExtResource("9_xx3d8")
 player = NodePath("../../Player")
-text = "What… is this? And old ring? I should probably leave it alone…"
+image = NodePath("../../Pictures/coin3")
+text = "Some machine... thing? Weird… too heavy to be from some camper. Maybe this belonged to… nah, no one’s been out here in years."
+
+[node name="dirt_pile_journal" parent="Node3D" instance=ExtResource("8_cre6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.5863, -6.69322, 44.0515)
+script = ExtResource("9_xx3d8")
+player = NodePath("../../Player")
+image = NodePath("../../Pictures/coin4")
+text = "Old journal... These pages are soaked through. Guess the last person out here didn't make it home... Still, someone might buy this stuff."
+
+[node name="dirt_pile_compass" parent="Node3D" instance=ExtResource("8_cre6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.529, -6.69322, 74.9578)
+script = ExtResource("9_xx3d8")
+player = NodePath("../../Player")
+image = NodePath("../../Pictures/coin5")
+text = "Compass from… I don’t even know when. Useless thing can’t point north—wait… no, it is pointing… at... hmm..."
+
+[node name="dirt_pile_dogtag" parent="Node3D" instance=ExtResource("8_cre6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.6981, -6.69322, 102.76)
+script = ExtResource("9_xx3d8")
+player = NodePath("../../Player")
+image = NodePath("../../Pictures/coin6")
+text = "A military dogtag, which... No way. My last name. Kinda creepy, but hey—distant relative? I’ll add it to the haul."
+
+[node name="dirt_pile_locket" parent="Node3D" instance=ExtResource("8_cre6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.4598, -6.69322, 113.717)
+script = ExtResource("9_xx3d8")
+player = NodePath("../../Player")
+image = NodePath("../../Pictures/coin7")
+text = "Huh. Locket’s in good condition. And that date… that’s today… What are the odds of that?"
+
+[node name="dirt_pile_shoes" parent="Node3D" instance=ExtResource("8_cre6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2856, -6.69322, 125.952)
+script = ExtResource("9_xx3d8")
+player = NodePath("../../Player")
+image = NodePath("../../Pictures/coin8")
+text = "*MY* shoes?? Okay, these… these look exactly like mine. Same brand, same size… What are they doing out here?"
+
+[node name="dirt_pile_coin_new" parent="Node3D" instance=ExtResource("8_cre6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8528, -6.69322, 146.189)
+script = ExtResource("9_xx3d8")
+player = NodePath("../../Player")
+image = NodePath("../../Pictures/coin9")
+text = "Another ancient coin… with a date from next year? That can’t be right. Who’s out here planting this stuff?"
+
+[node name="dirt_pile_key" parent="Node3D" instance=ExtResource("8_cre6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3654, -6.69322, 182.24)
+script = ExtResource("9_xx3d8")
+player = NodePath("../../Player")
+image = NodePath("../../Pictures/coin10")
+text = "An ornate rusty key. I wonder what it opens? Neat."
+
+[node name="dirt_pile_tablet" parent="Node3D" instance=ExtResource("8_cre6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8478, -6.69322, 199.72)
+script = ExtResource("9_xx3d8")
+player = NodePath("../../Player")
+image = NodePath("../../Pictures/coin11")
+text = "A stone tablet etched with undecipherable runes... How is my metal detector even picking these things up?"
+
+[node name="dirt_pile_bracelet" parent="Node3D" instance=ExtResource("8_cre6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.6227, -6.69322, 206.622)
+script = ExtResource("9_xx3d8")
+player = NodePath("../../Player")
+image = NodePath("../../Pictures/coin12")
+text = "A bracelet... This looks way too similar to the one belonging to that girl who went missing recently. Maybe she's out here somewhere?"
+
+[node name="dirt_pile_???" parent="Node3D" instance=ExtResource("8_cre6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.532, -6.4077, 190.438)
+script = ExtResource("9_xx3d8")
+player = NodePath("../../Player")
+image = NodePath("../../Pictures/coin13")
+text = "OH GOD..."
+
+[node name="Pictures" type="Node3D" parent="."]
+
+[node name="coin" type="Sprite3D" parent="Pictures"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.938442, -5.6266, 15.0854)
+billboard = 1
+texture = ExtResource("10_2xni1")
+
+[node name="coin2" type="Sprite3D" parent="Pictures"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 24.8407, -5.6266, 34.4707)
+billboard = 1
+texture = ExtResource("11_acl0b")
+
+[node name="coin3" type="Sprite3D" parent="Pictures"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 57.3625, -5.28759, 30.8688)
+billboard = 1
+texture = ExtResource("12_5t3py")
+
+[node name="coin4" type="Sprite3D" parent="Pictures"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.9972, -5.28759, 43.7873)
+billboard = 1
+texture = ExtResource("13_otwyt")
+
+[node name="coin5" type="Sprite3D" parent="Pictures"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 110.751, -5.28759, 75.2628)
+billboard = 1
+texture = ExtResource("14_24gfb")
+
+[node name="coin6" type="Sprite3D" parent="Pictures"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.1266, -5.28759, 102.764)
+billboard = 1
+texture = ExtResource("15_5itlr")
+
+[node name="coin7" type="Sprite3D" parent="Pictures"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 64.6095, -5.28759, 113.444)
+billboard = 1
+texture = ExtResource("16_glqwk")
+
+[node name="coin8" type="Sprite3D" parent="Pictures"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 24.5702, -5.28759, 125.518)
+billboard = 1
+texture = ExtResource("17_wt05m")
+
+[node name="coin9" type="Sprite3D" parent="Pictures"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -13.3014, -5.28759, 145.556)
+billboard = 1
+texture = ExtResource("18_s1ix7")
+
+[node name="coin10" type="Sprite3D" parent="Pictures"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -12.3873, -5.28759, 182.063)
+billboard = 1
+texture = ExtResource("19_kkusw")
+
+[node name="coin11" type="Sprite3D" parent="Pictures"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5644, -5.28759, 199.145)
+billboard = 1
+texture = ExtResource("20_cdtke")
+
+[node name="coin12" type="Sprite3D" parent="Pictures"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 68.1598, -5.28759, 206.089)
+billboard = 1
+texture = ExtResource("21_met2g")
+
+[node name="coin13" type="Sprite3D" parent="Pictures"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 164.501, -5.28759, 190.281)
+billboard = 1
+texture = ExtResource("22_cal8j")

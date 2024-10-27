@@ -1,12 +1,15 @@
 extends Node3D
 
 @export var player: NodePath  # Drag and drop the player node in the editor
+@export var image: NodePath  # Drag and drop the player node in the editor
 @export var text: String # Text to say
 @onready var dialogue_label = $"../../UI/dialogue"
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var image = get_node(image)
+	image.visible = false
 	pass # Replace with function body.
 
 
@@ -19,6 +22,8 @@ func get_distance_to_player() -> float:
 		return -1.0
 
 func set_player_state():
+	var image = get_node(image)
+	image.visible = true
 	dialogue_label.text = text
 
 
