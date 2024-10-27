@@ -1,0 +1,18 @@
+[gd_resource type="MeshLibrary" load_steps=3 format=3 uid="uid://ds2qkicnaqw3d"]
+
+[ext_resource type="ArrayMesh" uid="uid://dqyr1o7rv42l5" path="res://environment/mesh stuff/rock1.tres" id="1_7v22t"]
+[ext_resource type="ArrayMesh" uid="uid://c1ajhyt3cq6n1" path="res://environment/mesh stuff/tree1.tres" id="2_igewl"]
+
+[resource]
+item/0/name = ""
+item/0/mesh = ExtResource("1_7v22t")
+item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/shapes = []
+item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/navigation_layers = 1
+item/1/name = ""
+item/1/mesh = ExtResource("2_igewl")
+item/1/mesh_transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+item/1/shapes = []
+item/1/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/navigation_layers = 1
